@@ -6,7 +6,7 @@ It provides functions to load the raw SQL-exported dataset, load the fully prepr
 and save the final cleaned data for modeling.
 
 Author: John Medina
-Date: July 8, 2025
+Date: 7/8/2025
 """
 
 import pandas as pd
@@ -29,7 +29,7 @@ def load_raw_data(filepath="../../data/processed/under65_sql_processed_data.csv"
     return df
 
 
-def load_clean_data(filepath="../../data/processed/under65_clean_data.csv"):
+def load_clean_data(filename="default"):
     """
     Load the final cleaned dataset (after imputation and log transformation).
 
@@ -39,20 +39,24 @@ def load_clean_data(filepath="../../data/processed/under65_clean_data.csv"):
     Returns:
     pd.DataFrame: Loaded preprocessed dataset
     """
+    
+    filepath=f"../../data/processed/{filename}.csv"
     if not os.path.exists(filepath):
         raise FileNotFoundError(f"File not found at: {filepath}")
     
     df = pd.read_csv(filepath)
     return df
 
-def save_clean_data(df, filepath="../../data/processed/under65_clean_data.csv"):
+def save_clean_data(df, filename="default"):
     """
-    Save the cleaned and preprocessed dataset to the specified path.
+    Save the cleaned and preprocessed dataset to the processed data folder.
 
     Parameters:
-    df (pd.DataFrame): The DataFrame to save
-    filepath (str): Target file path (default saves to /data/preprocessed)
+        df (pd.DataFrame): The DataFrame to save.
+        filename (str): File name (without extension) to save under /data/processed/.
     """
+    
+    filepath=f"../../data/processed/{filename}.csv"
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
     df.to_csv(filepath, index=False)
     print(f"Cleaned data saved to: {filepath}")
