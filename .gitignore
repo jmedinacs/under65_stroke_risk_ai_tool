@@ -1,0 +1,50 @@
+# ---- Python Cache and Metadata ----
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ---- Virtual Environment ----
+venv/
+.env/
+*.env
+
+# ---- Logs, Runtime, Temporary Files ----
+*.log
+*.out
+*.bak
+*.tmp
+*.swp
+.DS_Store
+
+# ---- Data Files (CSV, Parquet, DBs, etc.) ----
+data/*.csv
+data/*.parquet
+data/*.xlsx
+data/*.sav
+data/*.db
+data/*.sqlite
+
+# Optional: keep example files or folder structure
+!data/README.md
+!data/sample_schema.csv
+
+# ---- Notebooks Checkpoints ----
+.ipynb_checkpoints/
+
+# ---- IDE & Editor Files (Eclipse/PyDev) ----
+.project
+.pydevproject
+.metadata/
+.settings/
+*.launch
+
+# ---- VSCode or JetBrains (just in case) ----
+.vscode/
+.idea/
+*.iml
+
+# ---- Model Artifacts ----
+models/
+*.pkl
+*.joblib
+*.h5
