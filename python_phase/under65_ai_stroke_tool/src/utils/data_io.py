@@ -45,6 +45,8 @@ def load_clean_data(filename="default"):
         raise FileNotFoundError(f"File not found at: {filepath}")
     
     df = pd.read_csv(filepath)
+    if df.shape[1] == 1:
+        df = df.squeeze() #Convert df to a series if one column (target)
     return df
 
 def save_clean_data(df, filename="default"):
